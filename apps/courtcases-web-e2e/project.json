@@ -1,0 +1,28 @@
+{
+  "root": "apps/courtcases-web-e2e",
+  "sourceRoot": "apps/courtcases-web-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/courtcases-web-e2e/cypress.json",
+        "devServerTarget": "courtcases-web:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "courtcases-web:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/courtcases-web-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["courtcases-web"]
+}

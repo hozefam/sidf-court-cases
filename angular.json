@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "courtcases-web": "apps/courtcases-web",
+    "courtcases-web-e2e": "apps/courtcases-web-e2e"
+  }
+}

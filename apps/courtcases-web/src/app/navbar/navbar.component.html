@@ -1,0 +1,25 @@
+<div class="navbar-sample">
+  <igx-navbar title="SIDF Court Cases">
+    <span *ngIf="isUserLoggedIn" class="igx-typography__subtitle-1"
+      >Welcome, {{ profile?.displayName }}</span
+    >
+    <button
+      igxButton="raised"
+      igxButtonBackground="white"
+      igxRipple
+      (click)="login()"
+      *ngIf="!isUserLoggedIn"
+    >
+      Login
+    </button>
+    <button
+      igxButton="raised"
+      igxButtonBackground="white"
+      igxRipple
+      (click)="logout()"
+      *ngIf="isUserLoggedIn"
+    >
+      Logout
+    </button>
+  </igx-navbar>
+</div>

@@ -18,8 +18,15 @@
           "apps/courtcases-web/src/favicon.ico",
           "apps/courtcases-web/src/assets"
         ],
-        "styles": ["apps/courtcases-web/src/styles.scss"],
-        "scripts": []
+        "styles": [
+          "./node_modules/igniteui-angular/styles/igniteui-angular-dark.css",
+          "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+          "apps/courtcases-web/src/styles.scss"
+        ],
+        "scripts": [
+          "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+          "./node_modules/hammerjs/hammer.min.js"
+        ]
       },
       "configurations": {
         "production": {

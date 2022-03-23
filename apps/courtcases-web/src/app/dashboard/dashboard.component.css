@@ -1,0 +1,20 @@
+.content-wrap {
+  display: flex;
+  height: 100%;
+}
+
+main {
+  height: 100%;
+  overflow: auto;
+  padding: 16px;
+  h5 {
+    padding: 8px 0;
+  }
+}
+
+.dashboard__app-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

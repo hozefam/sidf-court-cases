@@ -1,1 +1,204 @@
-<p>create works!</p>
+<div class="container">
+  <p class="igx-typography__subtitle-1">New Court Case Form</p>
+  <igx-divider></igx-divider>
+  <form class="mt-4">
+    <!-- Court Case Type ~ Section-->
+    <div class="create__form__section">
+      <h6>Court Case Type</h6>
+
+      <label class="my-2">What is the court case type?</label>
+      <igx-radio-group [alignment]="alignment">
+        <igx-radio class="m-1" value="T">Loan related court case</igx-radio>
+        <igx-radio class="m-1" value="L">Labor related court case</igx-radio>
+        <igx-radio class="m-1" value="P"
+          >Procurement related court case</igx-radio
+        >
+      </igx-radio-group>
+    </div>
+
+    <!-- Loan Details ~ Section -->
+    <div class="create__form__section">
+      <h6>Loan Details</h6>
+
+      <div>
+        <div class="row w-100 my-2">
+          <div class="col">
+            <igx-input-group>
+              <input
+                igxInput
+                name="projectNumber"
+                type="number"
+                placeholder="Enter project number (e.g. 1234)"
+              />
+              <label igxLabel for="projectNumber">Project number</label>
+              <igx-suffix>
+                <igx-icon>search</igx-icon>
+              </igx-suffix>
+            </igx-input-group>
+          </div>
+        </div>
+
+        <div class="row w-100">
+          <div class="col">
+            <igx-input-group>
+              <input
+                igxInput
+                name="sauNumber"
+                type="text"
+                placeholder="SAU1234 - Tesla"
+              />
+              <label igxLabel for="sauNumber">SAU number</label>
+            </igx-input-group>
+          </div>
+
+          <div class="col">
+            <igx-simple-combo
+              type="line"
+              placeholder="Choose Loan number"
+              [data]="loans"
+            ></igx-simple-combo>
+          </div>
+        </div>
+
+        <div class="row w-100">
+          <div class="col">
+            <igx-input-group>
+              <input igxInput name="loanAmount" type="text" />
+              <label igxLabel for="loanAmount">Loan amount</label>
+              <igx-suffix> SAR </igx-suffix>
+            </igx-input-group>
+          </div>
+
+          <div class="col">
+            <igx-input-group>
+              <input igxInput name="outstandingAmount" type="text" />
+              <label igxLabel for="outstandingAmount">Outstanding amount</label>
+              <igx-suffix> SAR </igx-suffix>
+            </igx-input-group>
+          </div>
+        </div>
+
+        <div class="row w-100">
+          <div class="col">
+            <igx-input-group>
+              <input igxInput name="fufAmount" type="text" />
+              <label igxLabel for="fufAmount">FUF amount</label>
+              <igx-suffix> SAR </igx-suffix>
+            </igx-input-group>
+          </div>
+
+          <div class="col">
+            <igx-input-group>
+              <input igxInput name="additionalFees" type="text" />
+              <label igxLabel for="additionalFees">Additional fees</label>
+              <igx-suffix> SAR </igx-suffix>
+            </igx-input-group>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Court Case Details ~ Section -->
+    <div class="create__form__section">
+      <h6>Court Case Details</h6>
+
+      <div>
+        <div class="row w-100 my-2">
+          <div class="col">
+            <igx-input-group>
+              <input
+                igxInput
+                name="caseNumber"
+                type="number"
+                placeholder="Enter case number"
+              />
+              <label igxLabel for="caseNumber">Case number</label>
+            </igx-input-group>
+          </div>
+          <div class="col">
+            <igx-simple-combo
+              type="line"
+              placeholder="Year"
+              [data]="year"
+            ></igx-simple-combo>
+          </div>
+          <div class="col">
+            <igx-input-group>
+              <input
+                igxInput
+                name="caseSubject"
+                type="text"
+                placeholder="Enter case subject"
+              />
+              <label igxLabel for="caseSubject">Case Subject</label>
+            </igx-input-group>
+          </div>
+        </div>
+
+        <div class="row w-100 my-2">
+          <div class="col">
+            <label class="my-1">In favor</label>
+            <igx-radio-group [alignment]="alignment">
+              <igx-radio class="mx-1" value="T">Against SIDF</igx-radio>
+              <igx-radio class="mx-1" value="L">SIDF</igx-radio>
+            </igx-radio-group>
+          </div>
+          <div class="col">
+            <igx-input-group>
+              <input
+                igxInput
+                name="courtName"
+                type="text"
+                placeholder="Enter court name"
+              />
+              <label igxLabel for="courtName">Court name</label>
+            </igx-input-group>
+          </div>
+          <div class="col">
+            <igx-input-group>
+              <input
+                igxInput
+                name="claimAmount"
+                type="text"
+                placeholder="Enter claim amount"
+              />
+              <label igxLabel for="claimAmount">Claim Amount</label>
+            </igx-input-group>
+          </div>
+        </div>
+
+        <div class="row w-100 my-2">
+          <div class="col">
+            <igx-input-group>
+              <input
+                igxInput
+                name="caseNumber"
+                type="number"
+                placeholder="Enter case number"
+              />
+              <label igxLabel for="caseNumber">Case number</label>
+            </igx-input-group>
+          </div>
+          <div class="col">
+            <igx-simple-combo
+              type="line"
+              placeholder="Year"
+              [data]="year"
+            ></igx-simple-combo>
+          </div>
+          <div class="col">
+            <igx-input-group>
+              <input
+                igxInput
+                name="caseSubject"
+                type="text"
+                placeholder="Enter case subject"
+              />
+              <label igxLabel for="caseSubject">Case Subject</label>
+            </igx-input-group>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

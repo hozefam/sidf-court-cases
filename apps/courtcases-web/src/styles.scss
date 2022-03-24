@@ -21,3 +21,20 @@
   $type-scale: $material-type-scale
 );
 @include theme($default-palette);
+
+$primary-color: #41ad4f;
+$secondary-color: #41ad4fc0;
+
+$my-color-palette: palette(
+  $primary: $primary-color,
+  $secondary: $secondary-color,
+);
+
+@include theme($my-color-palette);
+
+main {
+  background-image: url('https://www.sidf.gov.sa/Style%20Library/branding/assets/images/backs/generic.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right;
+}

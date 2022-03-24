@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
+import { RadioGroupAlignment } from 'igniteui-angular';
+
 @Component({
   selector: 'sidf-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css']
+  styleUrls: ['./create.component.css'],
 })
 export class CreateComponent implements OnInit {
+  loans = ['40000001', '40000002', '40000003'];
+  year = ['2021', '2022', '2023'];
 
-  constructor() { }
+  public alignment = RadioGroupAlignment.horizontal;
 
-  ngOnInit(): void {
-  }
+  constructor() {}
 
+  ngOnInit(): void {}
 }

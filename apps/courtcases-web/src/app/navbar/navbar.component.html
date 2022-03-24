@@ -1,11 +1,11 @@
 <div class="navbar-sample">
-  <igx-navbar title="SIDF Court Cases">
+  <igx-navbar title="Court Cases System">
     <span *ngIf="isUserLoggedIn" class="igx-typography__subtitle-1"
-      >Welcome, {{ profile?.displayName }}</span
+      >Welcome, {{ displayName$ | async }}</span
     >
     <button
       igxButton="raised"
-      igxButtonBackground="white"
+      igxButtonBackground="#CFB53B"
       igxRipple
       (click)="login()"
       *ngIf="!isUserLoggedIn"
@@ -14,7 +14,7 @@
     </button>
     <button
       igxButton="raised"
-      igxButtonBackground="white"
+      igxButtonBackground="#CFB53B"
       igxRipple
       (click)="logout()"
       *ngIf="isUserLoggedIn"

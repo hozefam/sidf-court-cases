@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AzureAdAuthService } from './azure-ad-auth.service';
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import {
@@ -7,7 +8,7 @@ import {
   MSAL_GUARD_CONFIG,
 } from '@azure/msal-angular';
 import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
-import { filter, Subject, takeUntil } from 'rxjs';
+import { filter, Subject, Subscription, takeUntil } from 'rxjs';
 import { environment } from '../environments/environment';
 
 @Component({
@@ -23,7 +24,8 @@ export class AppComponent implements OnInit, OnDestroy {
     @Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
     private msalBroadcastService: MsalBroadcastService,
     private authService: MsalService,
-    private azureAdAuthService: AzureAdAuthService
+    private azureAdAuthService: AzureAdAuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +42,8 @@ export class AppComponent implements OnInit, OnDestroy {
           this.authService.instance.getAllAccounts().length > 0;
         this.azureAdAuthService.isUserLoggedIn.next(this.isUserLoggedIn);
       });
+
+    this.router.navigate(['']);
   }
 
   ngOnDestroy(): void {

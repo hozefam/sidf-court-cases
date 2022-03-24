@@ -1,15 +1,10 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-} from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Select, Store } from '@ngxs/store';
 
 import { AzureAdAuthService } from './../azure-ad-auth.service';
-import { Profile } from './../models/profile.model';
+import { Observable } from 'rxjs';
+import { ProfileState } from './../store/profile.state';
+import { SetProfile } from './../store/profile.actions';
 
 @Component({
   selector: 'sidf-navbar',
@@ -25,12 +20,12 @@ export class NavbarComponent implements OnInit {
   @Output()
   Logout = new EventEmitter();
 
-  profile?: Profile;
-  // profilePic?: SafeResourceUrl;
+  @Select(ProfileState.getProfileDisplayName)
+  displayName$!: Observable<string>;
 
   constructor(
     private azureAdAuthService: AzureAdAuthService,
-    private domSanitizer: DomSanitizer
+    private store: Store
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +34,6 @@ export class NavbarComponent implements OnInit {
 
       if (this.isUserLoggedIn) {
         this.getProfile();
-        // this.getProfilePic();
       }
     });
   }
@@ -54,16 +48,7 @@ export class NavbarComponent implements OnInit {
 
   getProfile() {
     this.azureAdAuthService.getUserProfile().subscribe((profileInfo) => {
-      this.profile = profileInfo;
+      this.store.dispatch(new SetProfile(profileInfo));
     });
   }
-
-  // getProfilePic() {
-  //   this.azureAdAuthService.getUserProfilePic().subscribe((response) => {
-  //     const urlCreator = window.URL || window.webkitURL;
-  //     this.profilePic = this.domSanitizer.bypassSecurityTrustResourceUrl(
-  //       urlCreator.createObjectURL(response)
-  //     );
-  //   });
-  // }
 }

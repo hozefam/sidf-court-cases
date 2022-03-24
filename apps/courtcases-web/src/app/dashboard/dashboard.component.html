@@ -8,19 +8,19 @@
   >
     <ng-template igxDrawer>
       <nav>
-        <div class="dashboard__app-name">
+        <!-- <div class="dashboard__app-name">
           <igx-icon family="imx-icons" name="legal-document"></igx-icon>
           <span igxDrawerItem [isHeader]="true">Court Cases System</span>
-        </div>
+        </div> -->
 
         <span
           *ngFor="let item of navItems"
           igxDrawerItem
-          [active]="item.text === selected"
+          [active]="item.name === (selectedMenu$ | async)?.name"
           igxRipple
           (click)="navigate(item)"
         >
-          <igx-icon family="material">{{ item.name }}</igx-icon>
+          <igx-icon family="material">{{ item.iconName }}</igx-icon>
           <span>{{ item.text }}</span>
         </span>
       </nav>
@@ -28,11 +28,13 @@
   </igx-nav-drawer>
 
   <main igxFlex class="w-100 h-full">
-    <span igxButton="icon" igxToggleAction="navigation">
-      <igx-icon family="material">menu</igx-icon>
-    </span>
+    <div class="d-flex w-100 justify-content-start align-items-center">
+      <button igxButton="icon" igxToggleAction="navigation">
+        <igx-icon family="material">menu</igx-icon>
+      </button>
+      <label>{{ (selectedMenu$ | async)?.text }}</label>
+    </div>
 
-    <h5>{{ selected }}</h5>
     <div>
       <router-outlet></router-outlet>
     </div>

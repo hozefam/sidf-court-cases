@@ -6,6 +6,10 @@ import {
   MsalModule,
   MsalRedirectComponent,
 } from '@azure/msal-angular';
+import {
+  NgxsReduxDevtoolsPlugin,
+  NgxsReduxDevtoolsPluginModule,
+} from '@ngxs/devtools-plugin';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -13,12 +17,16 @@ import { AzureAdAuthService } from './azure-ad-auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { ClientApplication } from '@azure/msal-browser/dist/app/ClientApplication';
+import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IgxModule } from './igx/igx.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgModule } from '@angular/core';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsModule } from '@ngxs/store';
 import { PagesModule } from './pages/pages.module';
+import { ProfileState } from './store/profile.state';
+import { SharedState } from './store/shared.state';
 
 const isIE =
   window.navigator.userAgent.indexOf('MSIE ') > -1 ||
@@ -37,12 +45,15 @@ const routes: Routes = [
   declarations: [AppComponent, DashboardComponent, NavbarComponent],
   imports: [
     BrowserModule,
+    CommonModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     HttpClientModule,
-    IgxModule,
     PagesModule,
-    NgxsModule.forRoot(),
+    NgxsModule.forRoot([ProfileState, SharedState]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot(),
+    IgxModule,
     MsalModule.forRoot(
       new PublicClientApplication({
         auth: {
@@ -67,6 +78,7 @@ const routes: Routes = [
       }
     ),
   ],
+  exports: [IgxModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: MsalInterceptor, multi: true },
     MsalGuard,

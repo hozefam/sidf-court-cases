@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { CreateComponent } from './components/create/create.component';
+import { CreateHearingComponent } from './components/create-hearing/create-hearing.component';
 import { DelegationComponent } from './components/delegation/delegation.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
@@ -18,6 +19,7 @@ import { PagesRoutingModule } from './pages-routing.module';
     DelegationComponent,
     MycasesComponent,
     ListComponent,
+    CreateHearingComponent,
   ],
   imports: [CommonModule, IgxModule, PagesRoutingModule, FormsModule],
   exports: [IgxModule],

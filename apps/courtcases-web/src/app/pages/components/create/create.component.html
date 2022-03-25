@@ -6,14 +6,16 @@
     <div class="create__form__section">
       <h6>Court Case Type</h6>
 
-      <label class="my-2">What is the court case type?</label>
-      <igx-radio-group [alignment]="alignment">
-        <igx-radio class="m-1" value="T">Loan related court case</igx-radio>
-        <igx-radio class="m-1" value="L">Labor related court case</igx-radio>
-        <igx-radio class="m-1" value="P"
-          >Procurement related court case</igx-radio
-        >
-      </igx-radio-group>
+      <div class="row w-100 my-3">
+        <label class="mb-1">What is the court case type?</label>
+        <igx-radio-group [alignment]="alignment">
+          <igx-radio class="m-1" value="T">Loan related court case</igx-radio>
+          <igx-radio class="m-1" value="L">Labor related court case</igx-radio>
+          <igx-radio class="m-1" value="P"
+            >Procurement related court case</igx-radio
+          >
+        </igx-radio-group>
+      </div>
     </div>
 
     <!-- Loan Details ~ Section -->
@@ -21,7 +23,7 @@
       <h6>Loan Details</h6>
 
       <div>
-        <div class="row w-100 my-2">
+        <div class="row w-100 my-3">
           <div class="col">
             <igx-input-group>
               <input
@@ -38,7 +40,7 @@
           </div>
         </div>
 
-        <div class="row w-100">
+        <div class="row w-100 my-3">
           <div class="col">
             <igx-input-group>
               <input
@@ -60,7 +62,7 @@
           </div>
         </div>
 
-        <div class="row w-100">
+        <div class="row w-100 my-3">
           <div class="col">
             <igx-input-group>
               <input igxInput name="loanAmount" type="text" />
@@ -78,7 +80,7 @@
           </div>
         </div>
 
-        <div class="row w-100">
+        <div class="row w-100 my-3">
           <div class="col">
             <igx-input-group>
               <input igxInput name="fufAmount" type="text" />
@@ -103,7 +105,7 @@
       <h6>Court Case Details</h6>
 
       <div>
-        <div class="row w-100 my-2">
+        <div class="row w-100 my-3">
           <div class="col">
             <igx-input-group>
               <input
@@ -135,7 +137,7 @@
           </div>
         </div>
 
-        <div class="row w-100 my-2">
+        <div class="row w-100 my-3">
           <div class="col">
             <label class="my-1">In favor</label>
             <igx-radio-group [alignment]="alignment">
@@ -167,38 +169,78 @@
           </div>
         </div>
 
-        <div class="row w-100 my-2">
+        <div class="row w-100 my-3">
+          <div class="col">
+            <igx-date-picker [(value)]="date">
+              <label igxLabel>Court case date</label>
+            </igx-date-picker>
+          </div>
+          <div class="col">
+            <label class="my-1">Gurantor or Borrower</label>
+            <igx-radio-group [alignment]="alignment">
+              <igx-radio class="mx-1" value="T">Gurantor</igx-radio>
+              <igx-radio class="mx-1" value="L">Borrower</igx-radio>
+            </igx-radio-group>
+          </div>
+          <div class="col">
+            <label class="my-1">Final Ultimatum</label>
+            <igx-radio-group [alignment]="alignment">
+              <igx-radio class="mx-1" value="T">Yes</igx-radio>
+              <igx-radio class="mx-1" value="L">No</igx-radio>
+            </igx-radio-group>
+          </div>
+        </div>
+
+        <div class="row w-100 my-3">
           <div class="col">
             <igx-input-group>
               <input
                 igxInput
-                name="caseNumber"
-                type="number"
-                placeholder="Enter case number"
-              />
-              <label igxLabel for="caseNumber">Case number</label>
-            </igx-input-group>
-          </div>
-          <div class="col">
-            <igx-simple-combo
-              type="line"
-              placeholder="Year"
-              [data]="year"
-            ></igx-simple-combo>
-          </div>
-          <div class="col">
-            <igx-input-group>
-              <input
-                igxInput
-                name="caseSubject"
+                name="caseOfficer"
                 type="text"
-                placeholder="Enter case subject"
+                placeholder="Hozefa Mangalorewala"
               />
-              <label igxLabel for="caseSubject">Case Subject</label>
+              <label igxLabel for="caseOfficer">Case officer</label>
             </igx-input-group>
+          </div>
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row w-100">
+          <div class="col">
+            <div class="create__form__section mt-2">
+              <h6>First Update</h6>
+              <div class="col">
+                <sidf-create-hearing></sidf-create-hearing>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Buttons -->
+
+    <div class="d-flex flex-row-reverse mt-3">
+      <button
+        igxButton="raised"
+        igxButtonColor="white"
+        igxButtonBackground="#41AD4F"
+        igxRipple
+      >
+        Save
+      </button>
+
+      <button
+        class="mx-4"
+        igxButton="raised"
+        igxButtonBackground="#DC3545"
+        igxButtonColor="white"
+        igxRipple
+      >
+        Cancel
+      </button>
     </div>
   </form>
 </div>

@@ -1,6 +1,7 @@
 import {
   IgxButtonModule,
   IgxComboModule,
+  IgxDatePickerModule,
   IgxDividerModule,
   IgxIconModule,
   IgxInputGroupModule,
@@ -9,6 +10,7 @@ import {
   IgxRadioModule,
   IgxRippleModule,
   IgxSimpleComboModule,
+  IgxTimePickerModule,
   IgxToggleModule,
 } from 'igniteui-angular';
 
@@ -30,6 +32,8 @@ import { NgModule } from '@angular/core';
     IgxInputGroupModule,
     IgxSimpleComboModule,
     IgxComboModule,
+    IgxDatePickerModule,
+    IgxTimePickerModule,
   ],
   exports: [
     IgxButtonModule,
@@ -43,6 +47,8 @@ import { NgModule } from '@angular/core';
     IgxInputGroupModule,
     IgxSimpleComboModule,
     IgxComboModule,
+    IgxDatePickerModule,
+    IgxTimePickerModule,
   ],
 })
 export class IgxModule {}

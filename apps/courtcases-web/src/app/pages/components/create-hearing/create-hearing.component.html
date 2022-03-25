@@ -1,0 +1,95 @@
+<div>
+  <div class="row w-100 my-3">
+    <div class="col">
+      <igx-date-picker [(value)]="date">
+        <label igxLabel>Next hearing date</label>
+      </igx-date-picker>
+    </div>
+    <div class="col">
+      <igx-time-picker
+        #timePicker
+        [(ngModel)]="date"
+        [mode]="mode"
+        [inputFormat]="format"
+      >
+        <label igxLabel>Next hearing time</label>
+      </igx-time-picker>
+    </div>
+    <div class="col">
+      <igx-date-picker [(value)]="date">
+        <label igxLabel>Receiving court ruling date</label>
+      </igx-date-picker>
+    </div>
+  </div>
+
+  <div class="row w-100 my-3">
+    <div class="col">
+      <igx-input-group>
+        <input
+          igxInput
+          name="prevHearingReport"
+          type="text"
+          placeholder="Enter text"
+        />
+        <label igxLabel for="prevHearingReport">Previous hearing report</label>
+      </igx-input-group>
+    </div>
+    <div class="col">
+      <igx-input-group>
+        <input
+          igxInput
+          name="nextHearingReport"
+          type="text"
+          placeholder="Enter text"
+        />
+        <label igxLabel for="nextHearingReport">Next hearing report</label>
+      </igx-input-group>
+    </div>
+  </div>
+
+  <div class="row w-100 my-3">
+    <div class="col">
+      <igx-date-picker [(value)]="date">
+        <label igxLabel>Notice date</label>
+      </igx-date-picker>
+    </div>
+    <div class="col">
+      <igx-date-picker [(value)]="date">
+        <label igxLabel>Final notice date</label>
+      </igx-date-picker>
+    </div>
+    <div class="col">
+      <igx-simple-combo
+        type="line"
+        placeholder="Case Status"
+        [data]="caseStatus"
+      ></igx-simple-combo>
+    </div>
+  </div>
+
+  <div class="row w-100 my-3">
+    <div class="col">
+      <label>Update type</label>
+      <igx-radio-group [alignment]="alignment">
+        <igx-radio class="m-1" value="A">Attending hearing</igx-radio>
+        <igx-radio class="m-1" value="M">Meeting or a call</igx-radio>
+        <igx-radio class="m-1" value="O">Other (specify)</igx-radio>
+      </igx-radio-group>
+    </div>
+  </div>
+
+  <div class="row w-100 my-3">
+    <div class="col">
+      <igx-input-group>
+        <input igxInput name="Update" type="text" placeholder="Enter text" />
+        <label igxLabel for="Update">Update</label>
+      </igx-input-group>
+    </div>
+    <div class="col">
+      <igx-input-group>
+        <input igxInput name="link" type="text" placeholder="Enter text" />
+        <label igxLabel for="link">Link</label>
+      </igx-input-group>
+    </div>
+  </div>
+</div>
